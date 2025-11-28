@@ -1,0 +1,72 @@
+ubuntu@ip-172-31-31-193:/tmp/prometheus-3.7.3.linux-amd64$ sudo systemctl daemon-reload
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+Synchronizing state of grafana-server.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable grafana-server
+Created symlink /etc/systemd/system/multi-user.target.wants/grafana-server.service → /lib/systemd/system/grafana-server.service.
+● grafana-server.service - Grafana instance
+     Loaded: loaded (/lib/systemd/system/grafana-server.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-11-28 11:34:33 UTC; 33ms ago
+       Docs: http://docs.grafana.org
+   Main PID: 16372 ((grafana))
+      Tasks: 1 (limit: 1125)
+     Memory: 288.0K
+        CPU: 10ms
+     CGroup: /system.slice/grafana-server.service
+             └─16372 "(grafana)"
+
+Nov 28 11:34:33 ip-172-31-31-193 systemd[1]: Started Grafana instance.
+
+*********************************************************************************************************************************************************************
+
+ubuntu@ip-172-31-31-193:/tmp/prometheus-3.7.3.linux-amd64$ systemctl status node_exporter
+● node_exporter.service - Node Exporter
+     Loaded: loaded (/etc/systemd/system/node_exporter.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-11-28 11:22:47 UTC; 25min ago
+   Main PID: 14096 (node_exporter)
+      Tasks: 3 (limit: 1125)
+     Memory: 9.7M
+        CPU: 897ms
+     CGroup: /system.slice/node_exporter.service
+             └─14096 /usr/local/bin/node_exporter
+
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.153Z level=INFO source=node_exporter.go>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.154Z level=INFO source=tls_config.go:34>
+Nov 28 11:22:47 ip-172-31-31-193 node_exporter[14096]: time=2025-11-28T11:22:47.154Z level=INFO source=tls_config.go:34>
+
+******************************************************************************************************************************************************************************
+
+ubuntu@ip-172-31-31-193:/tmp/prometheus-3.7.3.linux-amd64$ systemctl status prometheus
+● prometheus.service - Prometheus
+     Loaded: loaded (/etc/systemd/system/prometheus.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-11-28 11:31:48 UTC; 16min ago
+   Main PID: 14963 (prometheus)
+      Tasks: 7 (limit: 1125)
+     Memory: 58.5M
+        CPU: 1.067s
+     CGroup: /system.slice/prometheus.service
+             └─14963 /usr/local/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/li>
+
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.270Z level=INFO source=tls_config.go:346 m>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.270Z level=INFO source=tls_config.go:349 m>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.270Z level=INFO source=head.go:836 msg="WA>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.270Z level=INFO source=head.go:873 msg="WA>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.273Z level=INFO source=main.go:1314 msg="f>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.273Z level=INFO source=main.go:1317 msg="T>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.273Z level=INFO source=main.go:1502 msg="L>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.277Z level=INFO source=main.go:1542 msg="C>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.277Z level=INFO source=main.go:1278 msg="S>
+Nov 28 11:31:48 ip-172-31-31-193 prometheus[14963]: time=2025-11-28T11:31:48.305Z level=INFO source=manager.go:190 msg=>
+
+
+*****************************************************************************************************************************************************************************************
+
+ubuntu@ip-172-31-31-193:/tmp/prometheus-3.7.3.linux-amd64$ 
